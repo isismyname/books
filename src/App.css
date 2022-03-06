@@ -1,0 +1,73 @@
+.red{
+  background: red;
+}
+.pp{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+.pprofile{
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+}
+.done{
+  z-index: -1;
+  width: 1000px;
+  height: 500px;
+}
+.pos{
+  position: absolute
+}
+.wowlog{
+  font-size: 30px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 5px black;
+  font-weight: 900;
+  color: red;
+  -webkit-transform: rotate(340deg);
+}
+.logwow{
+  -webkit-transform: rotate(340deg);
+  font-size: 10px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 5px black;
+  font-weight: 900;
+  color: yellow;
+}
+.sizet{
+  width: 350px;
+  position: relative;
+  left: 400px;
+}
+.access{
+  font-size: 72px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: 900;
+  color: orangered;
+}
+.headingtext{
+  font-size: 72px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: 900;
+  color: red
+}
+.subtext{
+  font-size: 20px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: 900;
+  color: yellow;
+}
+.red{
+  background: rgba(189, 7, 7, 1) !important;
+}
+.icons{
+  width: 30px;
+  height: 30px;
+}
+.detail{
+  width: 300px;
+}
