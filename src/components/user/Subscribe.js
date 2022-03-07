@@ -1,13 +1,24 @@
 import React from 'react'
-import UserPage from './userPage'
+import Wow from './atom/Wow'
+import Atomprofile from './atom/Atomprofile'
+import Subs from './atom/Subs'
+import Logout from './atom/Logout'
 
-export default function () {
+export default function Subscribe() {
+  
   const handleShow = () => {
     alert("Thank you for subscribing to premium, your premium package will be active after our admin approves your transaction. Thank you")
   };
   return (
     <div className='d-flex'>
-        <UserPage />
+      <div className='d-grid h-50 text-center px-5'>
+          <Wow />
+          <hr />
+          <Atomprofile />
+          <Subs />
+          <hr />
+          <Logout />
+      </div>
         <div className='text-center mx-auto my-auto'>
           <div className='m-2 d-grid mx-auto'>
             <p className='fw-bold fs-1'>Premium</p>

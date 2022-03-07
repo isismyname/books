@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 import img from '../img/landing.png'
+import { UserContext } from '../../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const [showL, setShowL] = useState(false);
@@ -21,13 +23,40 @@ export default function Home() {
   }        
 
   const Login = () => {
+    let nav = useNavigate();
+    const [state, dispatch] = useContext(UserContext)
+    console.log(state);
+    const handleOnSubmit = (e) => {
+      e.preventDefault()
+      const email = document.getElementById('email').value
+      const password = document.getElementById('password').value
+      const status = document.getElementById('status').value
+
+      const data = {
+          email,
+          password,
+          status
+      }
+
+      dispatch({
+          type: "LOGIN_SUCCESS",
+          payload: data
+      })
+      
+      if (data.status == "admin") {
+        nav("/admin-income");
+      } else {
+        nav("/user");
+      }
+  }
     return (
       <Modal show={showL} onHide={handleCloseL}>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleOnSubmit}>
               <Modal.Title className="text-center fw-1 fs-1 t-red my-3">Login</Modal.Title>
-              <Form.Control type="email" placeholder="Enter email" className="border-2 border-danger my-3" />
-              <Form.Control type="password" placeholder="Password" className="border-2 border-danger my-3" />
+              <Form.Control id='email' name='email' type="email" placeholder="Enter email" className="border-2 border-danger my-3" />
+              <Form.Control id='password' name='password' type="password" placeholder="Password" className="border-2 border-danger my-3" />
+              <Form.Control id='status' name='status' type="text" placeholder="Status" className="border-2 border-danger my-3" />
               <Button className='mx-auto fw-bold my-3 w-100' variant="danger" type="submit"> Sign In </Button>
               <p className="text-center"> Don't have an account ? Click <span onClick={switchL} className="fw-bold" >Here</span></p>
           </Form>

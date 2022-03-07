@@ -1,15 +1,21 @@
-import React, {useState} from 'react';
-import {Row, Col, Card, Form, Button} from 'react-bootstrap'
+import React from 'react';
+import {Row, Col, Card, Button} from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
 import hero from '../img/bukuHero.png'
-import UserPage from './userPage';
 import DataFake from '../fakedata/DataFake';
+import Wow from './atom/Wow'
+import Atomprofile from './atom/Atomprofile'
+import Subs from './atom/Subs'
+import Logout from './atom/Logout'
 
 export default function List(){
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
+    let nav = useNavigate()
+    const detailb=()=>{
+        nav('/detail-book')
+    }
     const handleShow = () => {
       alert("Please make a payment to read the latest books")
-    };
+    };  
       function Hero() {
         return (
                   <div className="container my-5">
@@ -41,19 +47,26 @@ export default function List(){
 
     return(
             <div className='d-flex'>
-                <UserPage />
+                <div className='d-grid h-50 text-center px-5'>
+                    <Wow />
+                    <hr />
+                    <Atomprofile />
+                    <Subs />
+                    <hr />
+                    <Logout />
+                </div>
                 <div className='d-grid'>
                     <Hero />
                     <Row>
                     {DataFake.map((data, index) => (
-                        <Col >
-                            <Card style={{ width: '200px' }}>
+                        <Col className='' >
+                            <Card className='cursor' onClick={detailb} style={{ width: '200px' }}>
                                 <Card.Img variant="top" src={data.images} />
                                 <Card.Body>
                                     <Card.Title>{data.title}</Card.Title>
                                     <Card.Text className='opacity-50'>{data.textby} {data.author}</Card.Text>
                                 </Card.Body>
-                                <Button onClick={handleShow}>Subscribe</Button>
+                                <Button className='btn btn-danger' onClick={handleShow}>Subscribe</Button>
                             </Card>
                         </Col>
                     ))}

@@ -1,13 +1,31 @@
 import React from 'react'
 import {Card, Col, Row} from 'react-bootstrap'
-import UserPage from './userPage'
 import img from '../img/ed.jpeg'
 import DataFake from '../fakedata/DataFake'
+import { useNavigate } from 'react-router-dom'
+import Wow from './atom/Wow'
+import Atomprofile from './atom/Atomprofile'
+import Subs from './atom/Subs'
+import Logout from './atom/Logout'
 
 export default function Profile() {
+    let nav = useNavigate();
+    const prof=()=>{
+        nav('/profile')
+    }
+    const dbook=()=>{
+        nav('/detail-book')
+    }
   return (
     <div className='d-flex'>
-        <UserPage/>
+        <div className='d-grid h-50 text-center px-5'>
+            <Wow />
+            <hr />
+            <Atomprofile />
+            <Subs />
+            <hr />
+            <Logout />
+        </div>
 
         <div className='mx-auto'>
         <p className='fs-1 fw-bold'>Profile</p>
@@ -44,14 +62,14 @@ export default function Profile() {
                 </div>
                 <div className='d-grid mx-2 w-25'>
                     <img src={img} className='pprofile' alt="Profile" />
-                    <button className='btn btn-danger my-3'>Edit Profile</button>
+                    <button onClick={prof} className='btn btn-danger my-3'>Edit Profile</button>
                 </div>
             </div>
             <Row className='my-5'>
                 <p className='fw-bold fs-1'>My List Book</p>
                 {DataFake.map((data, index) =>(
-                    <Col >
-                        <Card style={{ width: '150px' }}>
+                    <Col>
+                        <Card onClick={dbook} style={{ width: "150px", cursor: 'pointer' }}>
                             <Card.Img variant="top" src={data.images} />
                             <Card.Body>
                                 <Card.Title>{data.title}</Card.Title>

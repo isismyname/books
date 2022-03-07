@@ -1,15 +1,61 @@
 .red{
   background: red;
 }
+.detail{
+  float: left;
+}
+.wowdetail{
+  font-size: 48px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: bold;
+  color: red;
+  -webkit-transform: rotate(340deg);
+}
+.props{
+  width: 23px;
+  height: 23px;
+  background: orange;
+  border-radius: 100%;
+}
+.detailwow{
+  font-size: 15px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: bold;
+  color: yellow;
+  -webkit-transform: rotate(340deg);
+}
+.detailwoww{
+  font-size: 15px;
+  font-family: 'Courgette', cursive;
+  text-shadow: 0 0 10px black;
+  font-weight: bold;
+  color: yellow;
+  -webkit-transform: rotate(360deg);
+}
+.cursor{
+  cursor: pointer;
+}
 .pp{
   width: 80px;
   height: 80px;
+  border-radius: 100%;
+}
+.ppp{
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
 }
 .pprofile{
   width: 100%;
   height: 100%;
   border-radius: 20%;
+}
+.done1{
+  z-index: -1;
+  position: absolute;
+  width: 50%;
 }
 .done{
   z-index: -1;
@@ -71,3 +117,20 @@
 .detail{
   width: 300px;
 }
+.hamburger{
+  display: flex;
+  flex-direction: column;
+  height: 15px;
+  justify-content: space-between;
+}
+.hamburger span{
+  display: block;
+  width: 20px;
+  height: 5px;
+  background: gray
+}
+.dropcap{
+  float: left;
+  line-height: 1em;
+  margin: 0px 5px 0 0;
+  font-weight: bold;}
