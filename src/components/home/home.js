@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import { Button, Modal, Form } from 'react-bootstrap'
 import img from '../img/landing.png'
+import img1 from '../img/iconlandingpage.png'
 import { UserContext } from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -84,15 +85,14 @@ export default function Home() {
   };
 
     return(
-        <div className='container my-4 pos done d-flex justify-content-around py-4'>
+        <div className='container pos done d-flex justify-content-around'>
           <div className='d-flex'>
               <p className='my-auto d-grid sizet'>
-                <span className='headingtext'>WOW</span>
-                <span className='subtext'>WINDOW OF WORLD</span>
+                <img src={img1} className='w-100' alt="WindowOfWorld" />
                 Sign-up now and subscribe to enjoy all the cool and latest books - The best book rental service provider in Indonesia
                 <span className='d-flex justify-content-between my-3'>
                   <button onClick={handleShowR} className='btn btn-danger btn-outline-light border-2 px-5 border-rounded border-danger'>Sign Up</button>
-                  <button onClick={handleShowL} className='btn btn-light border-2 px-5 border-rounded border-danger'>Sign In</button>
+                  <button onClick={handleShowL} className='btn border-2 px-5 border-rounded border-danger'>Sign In</button>
                 </span>
               </p>
                 <img src={img} className="done" alt="" />

@@ -4,35 +4,11 @@
 .detail{
   float: left;
 }
-.wowdetail{
-  font-size: 48px;
-  font-family: 'Courgette', cursive;
-  text-shadow: 0 0 10px black;
-  font-weight: bold;
-  color: red;
-  -webkit-transform: rotate(340deg);
-}
 .props{
   width: 23px;
   height: 23px;
   background: orange;
   border-radius: 100%;
-}
-.detailwow{
-  font-size: 15px;
-  font-family: 'Courgette', cursive;
-  text-shadow: 0 0 10px black;
-  font-weight: bold;
-  color: yellow;
-  -webkit-transform: rotate(340deg);
-}
-.detailwoww{
-  font-size: 15px;
-  font-family: 'Courgette', cursive;
-  text-shadow: 0 0 10px black;
-  font-weight: bold;
-  color: yellow;
-  -webkit-transform: rotate(360deg);
 }
 .cursor{
   cursor: pointer;
@@ -59,27 +35,11 @@
 }
 .done{
   z-index: -1;
-  width: 1000px;
-  height: 500px;
+  width: 1241px;
+  height: 656px;
 }
 .pos{
   position: absolute
-}
-.wowlog{
-  font-size: 30px;
-  font-family: 'Courgette', cursive;
-  text-shadow: 0 0 5px black;
-  font-weight: 900;
-  color: red;
-  -webkit-transform: rotate(340deg);
-}
-.logwow{
-  -webkit-transform: rotate(340deg);
-  font-size: 10px;
-  font-family: 'Courgette', cursive;
-  text-shadow: 0 0 5px black;
-  font-weight: 900;
-  color: yellow;
 }
 .sizet{
   width: 350px;

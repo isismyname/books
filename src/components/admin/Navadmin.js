@@ -1,5 +1,6 @@
 import React from 'react'
 import img from '../img/taylor.jpeg'
+import img1 from '../img/iconnavbar.png'
 import { Dropdown, Button, ButtonGroup } from 'react-bootstrap'
 import { 
     useNavigate, 
@@ -22,14 +23,11 @@ export default function Navadmin() {
     // }
   return (
     <div>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between m-4'>
             <div>
-                <p onClick={inco} className='wowdetail cursor detail'>
-                    WOW
-                    <p className='detailwoww detail'>WINDOWOFWORLD</p>
-                </p>
+                <img src={img1} alt="WindowOfWorld" />
             </div>
-            <div className='m-5'>
+            <div>
                 <Dropdown as={ButtonGroup}>
                     <Button onClick={update} variant="no">
                         <img src={img} className='ppp' alt="Admin"/>

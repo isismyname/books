@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import img from '../../img/iconnavbar.png'
 
 export default function Wow() {
     let nav = useNavigate();
@@ -9,10 +10,7 @@ export default function Wow() {
     }
   return (
     <div onClick={user} className='cursor my-3'>
-        <p className='d-grid'>
-            <span className='wowlog'>WOW</span>
-            <span className='logwow'>WINDOW OF WORLD</span>
-        </p>
+      <img src={img} alt="WindowOfWorld" />
     </div>
   )
 }

@@ -51,15 +51,15 @@ export default function Income() {
   return (
     <div>
         <Navadmin/>
-        <div>
+        <div className='m-5'>
             <table border='2' className='table table-bordered border-2 border-dark'>
                 <tr className='text-dark text-center bg-dark bg-opacity-25'>
                     <th className='border-dark border-2'>No</th>
                     <th className='border-dark border-2'>Name</th>
-                    <th className='border-dark border-2'>Address</th>
-                    <th className='border-dark border-2'>Post Code</th>
-                    <th className='border-dark border-2'>Income</th>
-                    <th className='border-dark border-2'>Status</th>
+                    <th className='border-dark border-2'>Transfer</th>
+                    <th className='border-dark border-2'>Active Account</th>
+                    <th className='border-dark border-2'>Status User</th>
+                    <th className='border-dark border-2'>Status Payment</th>
                     <th>Action</th>
                 </tr>
                 <tr className='text-center'>
