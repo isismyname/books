@@ -1,28 +1,27 @@
-    const DataFake = [
-        {
-          id: 1,
-          textby: 'by ',
-          images: `https://archive.org/services/img/diaryofawimpykidbook01`,
-          title: "Diary of a Wimpy Kid",
-          author: "Jeff Kinney"
-        },{
-          id: 2,
-          textby: 'by ',
-          images: `https://archive.org/services/img/isbn_9781584159186`,
-          title: "Ways to help disadvantaged youth",
-          author: "Saul, Laya",
-        },{
-          id: 3,
-          textby: 'by ',
-          images: `https://archive.org/services/img/kidsister00embr`,
-          title: "Kid Sister",
-          author: "Embry, Margaret",
-        },{
-          id: 4,
-          textby: 'by ',
-          images: `https://archive.org/services/img/boomerangkid00quin`,
-          title: "The Boomerang Kid",
-          author: "Quin, Jay",
-        },
-    ]
-export default DataFake;
+// import React, { useEffect, useState } from 'react'
+// import { Card, Col } from 'react-bootstrap'
+// import { useNavigate, useParams } from 'react-router-dom'
+// import { API } from '../../config/api'
+
+// export default function DataFake({item}) {
+  
+
+//   const [books, setBooks] = useState([])
+
+
+//   const getAll = async () => {
+//     try {
+//       const res = await API.get('/books')
+//       setBooks(res.data.data.books)
+//       // console.log("BOOKS =>", res.data.data)
+//     } catch (error) {
+//       console.log(error.message)
+//     }
+//   }
+//   useEffect(() => {
+//     getAll();
+//     getAllTransaction(id);
+//   }, [])
+//   return (
+//   )
+// }

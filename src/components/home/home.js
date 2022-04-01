@@ -4,6 +4,7 @@ import img from '../img/landing.png'
 import img1 from '../img/iconlandingpage.png'
 import { UserContext } from '../../context/userContext';
 import { useNavigate } from 'react-router-dom';
+import { API } from "../../config/api";
 
 export default function Home() {
   const [showL, setShowL] = useState(false);
@@ -24,40 +25,63 @@ export default function Home() {
   }        
 
   const Login = () => {
-    let nav = useNavigate();
-    const [state, dispatch] = useContext(UserContext)
-    console.log(state);
-    const handleOnSubmit = (e) => {
-      e.preventDefault()
-      const email = document.getElementById('email').value
-      const password = document.getElementById('password').value
-      const status = document.getElementById('status').value
+    const nav = useNavigate();
+    const [state, dispatch] = useContext(UserContext);
+    
+    const [form, setForm] = useState({
+    email: "",
+    password: ""
+  })
 
-      const data = {
-          email,
-          password,
-          status
+  const { email, password } = form;
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault();
+
+      const config = {
+        headers: {
+          "Content-type": "application/json"
+        }
       }
 
-      dispatch({
+      const body = JSON.stringify(form)
+
+      const response = await API.post('/login', body, config)
+
+      console.log(response.data.data)
+
+      if (response.status === 200) {
+        
+        // Status check
+        if (response.data.data.role === 'admin') {
+          nav('/admin-income');
+        }else{
+          nav('/user');
+        }
+        dispatch({
           type: "LOGIN_SUCCESS",
-          payload: data
-      })
-      
-      if (data.status == "admin") {
-        nav("/admin-income");
-      } else {
-        nav("/user");
+          payload: response.data.data,
+        });
       }
-  }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
     return (
       <Modal show={showL} onHide={handleCloseL}>
         <Modal.Body>
-          <Form onSubmit={handleOnSubmit}>
+          <Form onSubmit={handleSubmit}>
               <Modal.Title className="text-center fw-1 fs-1 t-red my-3">Login</Modal.Title>
-              <Form.Control id='email' name='email' type="email" placeholder="Enter email" className="border-2 border-danger my-3" />
-              <Form.Control id='password' name='password' type="password" placeholder="Password" className="border-2 border-danger my-3" />
-              <Form.Control id='status' name='status' type="text" placeholder="Status" className="border-2 border-danger my-3" />
+              <Form.Control value={email} onChange={handleChange} id='email' name='email' type="email" placeholder="Enter email" className="border-2 border-danger my-3" />
+              <Form.Control value={password} onChange={handleChange} id='password' name='password' type="password" placeholder="Password" className="border-2 border-danger my-3" />
               <Button className='mx-auto fw-bold my-3 w-100' variant="danger" type="submit"> Sign In </Button>
               <p className="text-center"> Don't have an account ? Click <span onClick={switchL} className="fw-bold" >Here</span></p>
           </Form>
@@ -66,15 +90,58 @@ export default function Home() {
     );
   };
   const Register = () => {
+    const [form, setForm] = useState({
+      fullname: "",
+      email: "",
+      password: "",
+      address: "",
+      phone: "",
+      gender: "",
+    });
+
+    const {fullname, email, password, address, phone, gender} = form
+
+    const handleChangeF = async (e) =>{
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value
+      })
+    }
+
+    const handleSR = async (e) =>{
+      try {
+        e.preventDefault();
+
+        const settings = {
+          headers:{
+            "Content-Type": "application/json"
+          }
+        }
+        const body = JSON.stringify(form)
+
+        const response = await API.post('/register', body, settings)
+        console.log(response)
+
+        if(response.status === 200){
+          switchR()
+        }
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+
     return (
       <Modal show={showR} onHide={handleCloseR}>
         <Modal.Body>
           <Form >
               <Modal.Title className="text-center fs-1 fw-1 t-red my-3"> Register </Modal.Title>
-              <Form.Control type="email" placeholder="Enter email" name="email"  className="border-2 border-danger my-3" />
-              <Form.Control type="password" placeholder="Password" name="password" className="border-2 border-danger my-3" />
-              <Form.Control type="text" placeholder="Full Name" name="fullName" className="border-2 border-danger my-3" />
-              <Button className='mx-auto fw-bold my-3 w-100' variant="danger" onClick={switchR} type="submit">
+              <Form.Control onChange={handleChangeF} value={email} type="email" placeholder="Enter email" name="email"  className="border-2 border-danger my-3" />
+              <Form.Control onChange={handleChangeF} value={password} type="password" placeholder="Password" name="password" className="border-2 border-danger my-3" />
+              <Form.Control onChange={handleChangeF} value={fullname} type="text" placeholder="Full Name" name="fullname" className="border-2 border-danger my-3" />
+              <Form.Control onChange={handleChangeF} value={address} type="text" placeholder="Address" name="address" className="border-2 border-danger my-3" />
+              <Form.Control onChange={handleChangeF} value={phone} type="text" placeholder="Phone" name="phone" className="border-2 border-danger my-3" />
+              <Form.Control onChange={handleChangeF} value={gender} type="text" placeholder="Gender" name="gender" className="border-2 border-danger my-3" />
+              <Button className='mx-auto fw-bold my-3 w-100' variant="danger" onClick={handleSR} type="submit">
                 Register
               </Button>
               <p className="text-center"> Already have an account ? Click <span onClick={switchR} className="fw-bold" > Here </span></p>
